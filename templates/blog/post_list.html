@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block head %}
+<title>Blog</title>
+{% endblock head %}
+
+{% block content %}
+<h1>게시글 목록</h1>
+
+<input type="text" name="q" id="search-input">
+<button id="search-btn">검색</button>
+
+<section class='contents-section'>
+{% for post in post_list %}
+<a href='{% url "post_detail" post.pk %}'>
+    <h2 class='contents-heading'>{{ post.title }}</h2>
+    <p class='contents-text'>{{ post.content }}</p>
+    <p class='contents-updated'>{{ post.updated_at }}</p>
+</a>
+<hr>
+{% empty %}
+<p>게시물이 존재하지 않습니다. 첫번째 게시물의 주인공이 되세요!</p>
+{% endfor %}
+</section>
+
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block head %}
+<title>Blog Detail</title>
+{% endblock head %}
+
+{% block content %}
+<h1>게시글 상세보기</h1>
+
+<section class='contents-section'>
+    <h2 class='contents-heading'>{{ post.title }}</h2>
+    <p class='contents-text'>{{ post.content }}</p>
+    <p class='contents-updated'>{{ post.updated_at }}</p>
+</section>
+{% endblock content %}
